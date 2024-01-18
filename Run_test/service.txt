@@ -1,0 +1,26 @@
+1. sudo nano /etc/systemd/system/sgbd.service
+
+2. Ajoutez le contenu suivant dans le fichier du service :
+    [Unit]
+    Description=serveur_sgbd
+
+    [Service]
+    Type=simple
+    ExecStart=/home/mahaliana/Documents/S3/RÉSEAUX/SOCKET/Run_test/run.sh
+    WorkingDirectory=/home/mahaliana/Documents/S3/RÉSEAUX/SOCKET/Run_test/
+    Restart=yes
+
+    [Install]
+    WantedBy=default.target
+
+
+3. redre run.sh executable : chmod +r run.sh 
+
+4. Rechargez systemd :    sudo systemctl daemon-reload
+
+4. Démarrez le service :    sudo systemctl start nom-du-service
+
+5. Vérifiez le statut du service : sudo systemctl status nom-du-service
+
+6. Activez le service pour qu'il démarre automatiquement au démarrage du système :
+    sudo systemctl enable nom-du-service
